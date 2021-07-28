@@ -1,0 +1,46 @@
+{% extends "common/layout-transparent.html" %}
+{% load static %}
+{% block content %}
+
+
+
+
+
+
+
+<link rel="stylesheet" href="{% static 'mainpage.css'%} ">
+
+<body >
+
+    <video autoplay muted  id="myVideo" style="top: -15%; z-index: -999999;">
+        <source src= "{% static 'intro.mp4' %}" type="video/mp4">
+    </video>
+    
+      <div class="content" id ="aciklama"  >
+     
+            <div id = "resim"   style="text-align: center;" ><img src="{% static 'AKAR.jpg' %}" style="width: 15%; "> </div>
+        <br>  
+<div class="row">
+<div class="col-1"></div>
+<div class="col-10">
+    <div style="text-align: center;"  >
+        <p class="m-">Merhabalar bu platformun amacı daha öncesinde ilgi duyduğum ve üzerine çalışmış olduğum projeler hakkında insanlara bilgi vermek ve türkçe kaynak eksikliği olan konular için bir aracı olmaktır.
+        Umarım sizleri bilgilendirerek hedefime varabilmişimdir. </p>
+    </div>
+
+</div>
+<div class="col-1"></div>
+</div>
+    </div>
+      
+    <script>
+
+document.getElementById("myFrame").onload = function() {myFunction()};
+
+function myFunction() {
+  document.getElementById("aciklama").fadeOut(30000);
+}
+  
+    </script>
+
+{% endblock %}

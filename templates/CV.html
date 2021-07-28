@@ -1,0 +1,295 @@
+{% extends "common/layout-transparent.html" %}
+{% load static %}
+{% block content %}
+ 
+
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Berkay AKAR</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{% static 'cv/css/aos.css' %} " rel="stylesheet">
+    <link href="{% static 'cv/css/bootstrap.min.css'%}" rel="stylesheet">
+    <link href="{% static 'cv/css/main.css'%}" rel="stylesheet">
+    <noscript>
+      <style type="text/css">
+        [data-aos] {
+            opacity: 1 !important;
+            transform: translate(0) scale(1) !important;
+        }
+      </style>
+    </noscript>
+  </head>
+  <body id="top">
+    <header>
+      <div class="profile-page sidebar-collapse">
+         
+      </div>
+    </header>
+
+<div class="profile-page">
+  <div class="wrapper">
+    <div class="page-header page-header-small" filter-color="green">
+      <div class="page-header-image" data-parallax="true" style="background-image: url({% static 'cv/images/cc-bg-1.jpg' %})"></div>
+      <div class="container">                                                        
+        <div class="content-center">
+            {% for i in profilpotografı%}
+          <div class="cc-profile-image"><a href="#"><img src="media/{{i.ProfilFotografı}}" alt="Image"/></a></div>
+          {% endfor %}
+          <div class="h2 title">Berkay AKAR</div>
+<!-- Type Writter EFFECT-->
+
+          <br>
+            <p href="" class="typewrite category text-white" data-period="2000" data-type='[ "C# ", "Python", "Windows Server", "Web Geliştirme" ]'>
+              <span class="wrap"></span>
+            </p>
+          
+<!-- Type Writter EFFECT-->
+
+         </div>
+      </div>
+
+
+
+
+      <div class="section">
+        <div class="container">
+          <div class="button-container"><a class="btn btn-default btn-round btn-lg btn-icon" href="#" rel="tooltip" title="Linkedin Hesabım"><i class="fa fa-linkedin"></i></a><a class="btn btn-default btn-round btn-lg btn-icon" href="#" rel="tooltip" title="Github Hesabım"><i class="fa fa-Github"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="section" id="about">
+  <div class="container">
+    <div class="card" data-aos="fade-up" data-aos-offset="10">
+      <div class="row">
+        <div class="col-lg-6 col-md-12">
+          <div class="card-body">
+            
+            <div class="h4 mt-0 title">Hakkında</div>
+            {% for degisken in ozet %}
+            <p>{{degisken.ozet}}</p>
+         
+            {% endfor %}
+              
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-12">
+          <div class="card-body">
+            {% for i in kisiselbilgiler%}
+            <div class="h4 mt-0 title">Bilgiler</div>
+            <div class="row">
+              <div class="col-sm-4"><strong class="text-uppercase">Lokasyon :</strong></div>
+              <div class="col-sm-8">{{i.lokasyon}}</div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-sm-4"><strong class="text-uppercase">Telefon:</strong></div>
+              <div class="col-sm-8"><p><a href="tel:{{i.telefon}}">{{i.telefon}}</a></p></div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-sm-4"><strong class="text-uppercase">E - Mail:</strong></div>
+              <div class="col-sm-8"><a href="tel:{{i.telefon}}" target="_blank">{{i.telefon}} asdasd</a></div>
+         
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="section" id="skill">
+  <div class="container">
+    <div class="h4 text-center mb-4 title">Yetenekler</div>
+    <div class="card" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+      <div class="card-body">
+        
+        <div class="row">
+            {% for degisken in yetenekler %}
+          <div class="col-6">
+            <div class="progress-container progress-primary"><span class="progress-badge">{{degisken.yetenek_adi}}</span>
+              <div class="progress">
+                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{degisken.yetenekyuzdesi}}% ;"></div><span class="progress-value">{{degisken.yetenekyuzdesi}}%</span>
+              </div>
+            </div>
+          </div>
+                  {% endfor %}
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+ 
+     
+<div class="section" id="experience">
+  <div class="container cc-experience">
+    <div class="h4 text-center mb-4 title">Deneyimler </div>
+    <div class="card">
+      <div class="row">
+        {% for firma in deneyim %}	
+        <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
+          <div class="card-body cc-experience-header" style="text-align: center;">
+<div>
+            <img class="employer-img" src="media/{{firma.firmaicon}}" style="width: 80%;height: 125; margin-top: -10px;" >
+</div>
+          </div>
+        </div>
+        <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
+          <div class="card-body">
+            <div class="h5">{{firma.firma_adi}}   /  ( {{firma.görev}} )</div>
+            <p> {{firma.aciklama|safe}} </p>
+          </div>
+        </div>
+                    
+     {% endfor %}    
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="section">
+  <div class="container cc-education">
+    <div class="h4 text-center mb-4 title">Eğitim</div>
+    <div class="card">
+      <div class="row">
+        <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
+          <div class="card-body cc-education-header">
+
+            
+            <div class="h5">Master's Degree</div>
+          </div>
+        </div>
+        <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
+          <div class="card-body">
+            <div class="h5">Master of Information Technology </div>
+            <p class="category">University of Computer Science /  2013 - 2015</p>
+            <p>Euismod massa scelerisque suspendisse fermentum habitant vitae ullamcorper magna quam iaculis, tristique sapien taciti mollis interdum sagittis libero nunc inceptos tellus, hendrerit vel eleifend primis lectus quisque cubilia sed mauris. Lacinia porta vestibulum diam integer quisque eros pulvinar curae, curabitur feugiat arcu vivamus parturient aliquet laoreet at, eu etiam pretium molestie ultricies sollicitudin dui.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="section">
+    <div class="container cc-education">
+      <div class="h4 text-center mb-4 title">Projeler</div>
+      <div class="card">
+        <div class="row">
+          <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
+            <div class="card-body cc-education-header">
+  
+              
+              <div class="h5">Platform</div>
+            </div>
+          </div>
+          <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
+            <div class="card-body">
+              <div class="h5" style="text-align: center;">Master of Information Technology </div>
+           <br>
+              <p>Euismod massa scelerisque suspendisse fermentum habitant vitae ullamcorper magna quam iaculis, tristique sapien taciti mollis interdum sagittis libero nunc inceptos tellus, hendrerit vel eleifend primis lectus quisque cubilia sed mauris. Lacinia porta vestibulum diam integer quisque eros pulvinar curae, curabitur feugiat arcu vivamus parturient aliquet laoreet at, eu etiam pretium molestie ultricies sollicitudin dui.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+     
+ 
+
+ </div>
+    </div>
+     
+    <script src="{% static 'cv/js/core/jquery.3.2.1.min.js'%}"></script>
+    <script src="{% static 'cv/js/core/popper.min.js'%}"></script>
+    <script src="{% static 'cv/js/core/bootstrap.min.js'%}"></script>
+    <script src="{% static 'cv/js/now-ui-kit.js'%}"></script>
+    <script src="{% static 'cv/js/aos.js'%}"></script>
+    <script src="{% static 'cv/scripts/main.js' %}"></script>
+
+
+    <script>
+
+var TxtType = function(el, toRotate, period) {
+        this.toRotate = toRotate;
+        this.el = el;
+        this.loopNum = 0;
+        this.period = parseInt(period, 10) || 2000;
+        this.txt = '';
+        this.tick();
+        this.isDeleting = false;
+    };
+
+    TxtType.prototype.tick = function() {
+        var i = this.loopNum % this.toRotate.length;
+        var fullTxt = this.toRotate[i];
+
+        if (this.isDeleting) {
+        this.txt = fullTxt.substring(0, this.txt.length - 1);
+        } else {
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
+        }
+
+        this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+        var that = this;
+        var delta = 200 - Math.random() * 100;
+
+        if (this.isDeleting) { delta /= 2; }
+
+        if (!this.isDeleting && this.txt === fullTxt) {
+        delta = this.period;
+        this.isDeleting = true;
+        } else if (this.isDeleting && this.txt === '') {
+        this.isDeleting = false;
+        this.loopNum++;
+        delta = 500;
+        }
+
+        setTimeout(function() {
+        that.tick();
+        }, delta);
+    };
+
+    window.onload = function() {
+        var elements = document.getElementsByClassName('typewrite');
+        for (var i=0; i<elements.length; i++) {
+            var toRotate = elements[i].getAttribute('data-type');
+            var period = elements[i].getAttribute('data-period');
+            if (toRotate) {
+              new TxtType(elements[i], JSON.parse(toRotate), period);
+            }
+        }
+        // INJECT CSS
+        var css = document.createElement("style");
+        css.type = "text/css";
+        css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+        document.body.appendChild(css);
+    };
+
+
+    </script>
+  {% endblock %}
+
+</body>
+</html>
