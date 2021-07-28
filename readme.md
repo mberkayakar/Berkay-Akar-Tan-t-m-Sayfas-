@@ -1,0 +1,1 @@
+Beni Tanıtan bir kişisel gelişim sayfasıdır
