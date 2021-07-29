@@ -1,0 +1,180 @@
+{% load static %}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
+
+<link  href="{% static 'blog/main.css' %}" rel="stylesheet">
+ 
+
+<div class="projcard-container">
+		
+
+
+
+
+    {% for i in yazılar %}
+
+    {% if forloop.counter|divisibleby:2  %}
+
+
+
+
+    <div class="projcard projcard-blue">
+
+        <div class="projcard-innerbox">
+
+            <img class="projcard-img" src="{{i.image.url}}" />
+
+            <div class="projcard-textbox">
+
+                <div class="projcard-title">{{i.AnaBaslık}}</div>
+
+                <div class="projcard-subtitle">{{i.AltBaslık}}</div>
+
+                <div class="projcard-bar"></div>
+
+                <div class="projcard-description">{{i.description}}</div>
+
+                <div class="projcard-tagbox">
+					<span class="projcard-tag">HTML</span>
+					<span class="projcard-tag">CSS</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+ 
+      {% else %}
+     
+
+
+
+ 
+	
+	<div class="projcard projcard-blue">
+		<div class="projcard-innerbox">
+			<img class="projcard-img" src="{{i.image.url}}" />
+			<div class="projcard-textbox">
+				<div class="projcard-title">{{i.AnaBaslık}}</div>
+				<div class="projcard-subtitle">{{i.AltBaslık}}</div>
+				<div class="projcard-bar"></div>
+				<div class="projcard-description">{{i.description}}</div>
+				<div class="projcard-tagbox">
+					<span class="projcard-tag">PHP</span>
+					<span class="projcard-tag">SQL</span>
+					<span class="projcard-tag">Database</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+    {% endif %}
+    {% endfor %}
+  
+
+
+            
+
+
+
+
+
+
+    <div class="row">
+        <div class="col-12" style="text-align: center;">
+            <nav aria-label="Page navigation example ">
+                <ul class="pagination justify-content-center">
+                        {% if yazılar.has_previous %}
+                        <li class="page-item ">
+                        <a class="page-link" href="?page={{ yazılar.previous_page_number }}" tabindex="-1">Bir Önceki </a>
+                    </li>
+                        {% else %}
+                        <li class="page-item disabled ">
+                            <a class="page-link" href="#">Bir Önceki </a>
+                        </li>
+                        {% endif %}
+
+
+
+                        <!-- Ortanca Sayılar getirtiliyor -->
+
+             
+                    {% for i in yazılar.paginator.page_range  %}
+                    {% if yazılar.number == i %}
+                    
+                    <li class="page-item"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+                    {% else %}
+
+                    <li class="page-item"></li>><a href="?page={{i}}" class="btn">{{i}}</a></li>
+                    {% endif %}
+
+                    {% endfor %}
+
+
+                         <!-- Ortanca Sayılar getirtiliyor -->
+
+                    {% if yazılar.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ yazılar.next_page_number }}">Sonraki Sayfa</a>
+                    </li>
+                    {% else %}
+                     <li class="page-item disabled">
+                        <a class="page-link" href="#">Sonraki Sayfa</a>
+                    </li>
+                    {% endif %}
+
+                </ul>
+            </nav>
+
+
+     
+    
+
+
+
+
+
+    
+            
+    
+              
+    
+                    
+    
+    
+                    
+    
+                   
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+<script>
+    // This adds some nice ellipsis to the description:
+document.querySelectorAll(".projcard-description").forEach(function(box) {
+	$clamp(box, {clamp: 6});
+});
+
+</script>
