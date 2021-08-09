@@ -19,13 +19,17 @@
     border: none;
 
   }
-  .navbar a{color: white;}
+  .navbar a{color: white;
+  background-color: transparent;}
 
   a{
   text-decoration: none;
 }
 
-
+.dropdown-menu{
+  background-color: black;
+  color: white;
+}
   span{
     background-color: transparent ;
   }
@@ -48,14 +52,24 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           {% if request.user.is_authenticated %}
-          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Hoşgeldin : {{request.user.username}} <span class="caret"></span></a>
-            <ul class="dropdown-menu">
+          
+          <li ><a  href="#">Hoşgeldin : {{request.user.username}}  </a>
+          
+          </li>
+        </ul>
+        <ul>
+          
               <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Çıkış Yap</a></li>
             </ul>
-          </li>
+         
+          
+          
           {% else %}
+          <ul>
             <li><a href="#"><span class="glyphicon glyphicon-user"></span> Giriş Yap</a></li>
-          {% endif %}
+          </ul>
+          
+            {% endif %}
      
       
         </ul>

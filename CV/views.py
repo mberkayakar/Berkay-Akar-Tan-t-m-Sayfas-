@@ -2,7 +2,7 @@ from typing import Optional
 from django import template
 from django.shortcuts import render
  
-from .models import Yetenekler, projeler,İsDeneyimi,Summary,KisiselBilgiler,badget,ozellikler,ProfilFotografı
+from .models import Yetenekler, projeler,İsDeneyimi,Summary,KisiselBilgiler,badget,ozellikler,ProfilFotografı,Egitimler
 from django.template import loader
 from django.http import HttpResponse, response
 
@@ -15,7 +15,10 @@ def mainpage(request):
     projelerim=projeler.objects.all()
     rozet=badget.objects.all()
     özellikler=ozellikler.objects.all()
-    profilpotografı=ProfilFotografı.objects.all();
+    profilpotografı=ProfilFotografı.objects.all()
+    egitimler= Egitimler.objects.all()
 
-    context={"yetenekler":yetenekler,"deneyim":deneyim,"ozet":ozet,"kisiselbilgiler":kisiselbilgiler,"projeler":projelerim,"rozet":rozet,"özellikler":özellikler,"profilpotografı":profilpotografı}
+    context={"yetenekler":yetenekler,"deneyim":deneyim,"ozet":ozet,
+    "kisiselbilgiler":kisiselbilgiler,"projeler":projelerim,"rozet":rozet,
+    "özellikler":özellikler,"profilpotografı":profilpotografı,"egitimler":egitimler}
     return render(request,"CV.html",context)

@@ -34,7 +34,7 @@ class Egitimler (models.Model):
     aciklama=RichTextField()
     firmaicon = models.FileField(blank=True,null=True, verbose_name="eklemek isterseniz fotograf seçin ")
     def __str__(self):
-        return self.firma_adi
+        return self.egitim_adi
     
 class Summary (models.Model):
     ozet=  models.TextField(max_length=None)
